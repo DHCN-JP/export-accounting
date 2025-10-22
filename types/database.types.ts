@@ -34,6 +34,14 @@ export interface Database {
           created_at?: string
           updated_at?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "users_id_fkey"
+            columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

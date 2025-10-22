@@ -173,27 +173,27 @@ const signUp = async () => {
     if (authError) throw authError
     
     if (authData.user) {
-      // Try to insert user data into custom Users table (optional)
-      try {
-        const { error: insertError } = await supabase
-          .from('users')
-          .insert({
-            id: authData.user.id,
-            email: form.email,
-            full_name: form.name,
-            created_at: new Date().toISOString()
-          })
-        
-        if (insertError) {
-          console.warn('Could not insert into users table:', insertError.message)
-          // Continue anyway since auth user was created
-        }
-      } catch (insertError) {
-        console.warn('Users table may not exist yet:', insertError)
-        // Continue anyway since auth user was created
+      // Manually insert into users table
+      const { error: insertError } = await supabase
+        .from('users')
+        .insert({
+          id: authData.user.id,
+          email: form.email,
+          full_name: form.name,
+          avatar_url: null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
+      
+      if (insertError) {
+        console.error('Error inserting user data:', insertError)
+        errorMessage.value = `Account created but profile setup failed: ${insertError.message}`
+        // Auth user is created, but profile insert failed
+        // You might want to handle this gracefully
+        return
       }
       
-      successMessage.value = 'Account created successfully! Please check your email to confirm your account.'
+      successMessage.value = 'Account and profile created successfully! Please check your email to confirm your account.'
       
       // Clear form
       form.name = ''

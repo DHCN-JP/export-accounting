@@ -1,0 +1,15 @@
+pnpm install @supabase/supabase-js
+cd /Users/hironorikawano/Project/NuxtSpabase/export-accounting && npm install @nuxtjs/supabase @nuxtjs/tailwindcss
+pnpm add @nuxtjs/supabase @nuxtjs/tailwindcss
+
+
+https://github.com/dotansimha/graphql-code-generator
+pnpm add -D @parcel/watcher
+
+ Config file generated at codegen.ts
+
+      $ npm install
+
+    To install the plugins.
+
+      $ npm run codegen
