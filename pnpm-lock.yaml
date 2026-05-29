@@ -14,9 +14,15 @@ importers:
       '@nuxtjs/tailwindcss':
         specifier: ^6.14.0
         version: 6.14.0(magicast@0.3.5)(yaml@2.8.1)
+      '@urql/vue':
+        specifier: ^2.0.0
+        version: 2.0.0(@urql/core@6.0.1(graphql@16.11.0))(vue@3.5.22(typescript@5.9.3))
       graphql:
         specifier: ^16.11.0
         version: 16.11.0
+      graphql-tag:
+        specifier: ^2.12.6
+        version: 2.12.6(graphql@16.11.0)
     devDependencies:
       '@graphql-codegen/cli':
         specifier: 6.0.1
@@ -59,6 +65,14 @@ importers:
         version: 4.6.3(vue@3.5.22(typescript@5.9.3))
 
 packages:
+
+  '@0no-co/graphql.web@1.2.0':
+    resolution: {integrity: sha512-/1iHy9TTr63gE1YcR5idjx8UREz1s0kFhydf3bBLCXyqjhkIc6igAzTOx3zPifCwFR87tsh/4Pa9cNts6d2otw==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    peerDependenciesMeta:
+      graphql:
+        optional: true
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -1760,6 +1774,15 @@ packages:
     resolution: {integrity: sha512-7BYjHfOaoZ9+ARJkT10Q2TjnTUqDXmMpfakIAsD/hXiuff1oqWg1xeXT5+MomhNcC15HbiABpbbBmITLSHxdKg==}
     peerDependencies:
       vue: '>=3.5.18'
+
+  '@urql/core@6.0.1':
+    resolution: {integrity: sha512-FZDiQk6jxbj5hixf2rEPv0jI+IZz0EqqGW8mJBEug68/zHTtT+f34guZDmyjJZyiWbj0vL165LoMr/TkeDHaug==}
+
+  '@urql/vue@2.0.0':
+    resolution: {integrity: sha512-9eW8IfEPwnGHxvqfH2t8cBSI5eKPyLq2dizFVYIRGHi4ydMw5Q+vuMD+VP0I9zo0818zZ9b8TGLiyAmOzvyoAQ==}
+    peerDependencies:
+      '@urql/core': ^6.0.0
+      vue: ^3.2.0
 
   '@vercel/nft@0.30.3':
     resolution: {integrity: sha512-UEq+eF0ocEf9WQCV1gktxKhha36KDs7jln5qii6UpPf5clMqDc0p3E7d9l2Smx0i9Pm1qpq4S4lLfNl97bbv6w==}
@@ -4919,6 +4942,9 @@ packages:
     engines: {node: ^18.17.0 || >=20.5.0}
     hasBin: true
 
+  wonka@6.3.5:
+    resolution: {integrity: sha512-SSil+ecw6B4/Dm7Pf2sAshKQ5hWFvfyGlfPbEd6A14dOH6VDjrmbY86u6nZvy9omGwwIPFR8V41+of1EezgoUw==}
+
   wrap-ansi@6.2.0:
     resolution: {integrity: sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==}
     engines: {node: '>=8'}
@@ -5016,6 +5042,10 @@ packages:
     engines: {node: '>= 14'}
 
 snapshots:
+
+  '@0no-co/graphql.web@1.2.0(graphql@16.11.0)':
+    optionalDependencies:
+      graphql: 16.11.0
 
   '@alloc/quick-lru@5.2.0': {}
 
@@ -7040,6 +7070,19 @@ snapshots:
       hookable: 5.5.3
       unhead: 2.0.19
       vue: 3.5.22(typescript@5.9.3)
+
+  '@urql/core@6.0.1(graphql@16.11.0)':
+    dependencies:
+      '@0no-co/graphql.web': 1.2.0(graphql@16.11.0)
+      wonka: 6.3.5
+    transitivePeerDependencies:
+      - graphql
+
+  '@urql/vue@2.0.0(@urql/core@6.0.1(graphql@16.11.0))(vue@3.5.22(typescript@5.9.3))':
+    dependencies:
+      '@urql/core': 6.0.1(graphql@16.11.0)
+      vue: 3.5.22(typescript@5.9.3)
+      wonka: 6.3.5
 
   '@vercel/nft@0.30.3(rollup@4.52.5)':
     dependencies:
@@ -10582,6 +10625,8 @@ snapshots:
   which@5.0.0:
     dependencies:
       isexe: 3.1.1
+
+  wonka@6.3.5: {}
 
   wrap-ansi@6.2.0:
     dependencies:

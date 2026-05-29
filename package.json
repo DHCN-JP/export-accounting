@@ -27,6 +27,8 @@
   "dependencies": {
     "@nuxtjs/supabase": "^2.0.1",
     "@nuxtjs/tailwindcss": "^6.14.0",
-    "graphql": "^16.11.0"
+    "@urql/vue": "^2.0.0",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6"
   }
 }
